@@ -1,0 +1,6 @@
+add_subdirectory(WholeBodyMotionAnalysis)
+add_subdirectory(OdeIntTest)
+add_subdirectory(GeodesicGenerator)
+add_subdirectory(MotionGeneration)
+add_subdirectory(MotionAdaption)
+add_subdirectory(WalkingAdaption)

@@ -1,0 +1,16 @@
+# - Config file for the WholeBodyMotion package
+# It defines the following variables
+#  WholeBodyMotion_INCLUDE_DIRS - include directories for WholeBodyMotion
+#  WholeBodyMotion_LIBRARIES    - libraries to link against
+
+# Compute paths
+get_filename_component(WholeBodyMotion_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+set(WholeBodyMotion_INCLUDE_DIRS "@CONF_INCLUDE_DIRS@")
+
+# Our library dependencies (contains definitions for IMPORTED targets)
+if(NOT TARGET WholeBodyMotion AND NOT WholeBodyMotion_BINARY_DIR)
+  include("${WholeBodyMotion_CMAKE_DIR}/WholeBodyMotionTargets.cmake")
+endif()
+
+# These are IMPORTED targets created by WholeBodyMotionTargets.cmake
+set(WholeBodyMotion_LIBRARIES WholeBodyMotion)

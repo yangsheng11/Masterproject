@@ -1,0 +1,28 @@
+import os
+import bpy
+import time
+
+# put the location to the folder where the wrls are located here in this fashion
+path_to_wrl_dir = '/home/philipp/armarx/MMMTools/data/Model/Winter/models'
+
+# export here
+path_to_dae_dir = '/home/philipp/armarx/MMMTools/data/Model/Winter/models/collada'
+
+# get list of all files in directory
+file_list = sorted(os.listdir(path_to_wrl_dir))
+
+# get a list of files ending in 'wrl'
+obj_list = [item for item in file_list if item.endswith('.wrl')]
+
+# loop through the strings in obj_list and add the files to the scene, export, delete after
+for item in obj_list:
+    print (item)
+    path_to_file_wrl = os.path.join(path_to_wrl_dir, item)
+    path_to_file_dae = os.path.join(path_to_dae_dir, os.path.splitext(item)[0] + '.dae')
+    
+    bpy.ops.import_scene.x3d(filepath = path_to_file_wrl)
+    bpy.ops.wm.collada_export(filepath = path_to_file_dae)
+    
+    time.sleep(2)
+    
+    bpy.ops.object.delete()

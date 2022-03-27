@@ -1,0 +1,3 @@
+add_subdirectory(WholeBodyMotionLib)
+add_subdirectory(MotionHandler)
+add_subdirectory(MotionPlot)
